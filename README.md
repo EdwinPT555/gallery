@@ -6,7 +6,7 @@ Live Demo 👉https://jasim-gallery.netlify.app/
 ### `v14.18.0`
 
 ## 2. Clone Repository
-git clone https://github.com/EdwinPT555/gallery.git
+### `git clone https://github.com/EdwinPT555/gallery.git`
 
 ## 3. Installation
 ### `npm ci`

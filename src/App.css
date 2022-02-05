@@ -1,18 +1,24 @@
-.tiles-container{
-    padding: 10px;
+.tiles-container {
+  padding: 10px;
 }
 
-.watch-card{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 90vh;
+.watch-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 90vh;
 }
 
-.nav-logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: whitesmoke;
+.nav-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: whitesmoke;
 }
+
+/* @media only screen and (max-width: 600px) {
+    .media-card {
+      height: 300px;
+    }
+} */

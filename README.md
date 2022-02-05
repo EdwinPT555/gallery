@@ -6,12 +6,16 @@ Live Demo 👉https://jasim-gallery.netlify.app/
 ### `v14.18.0`
 
 ## 2. Clone Repository
-(https://github.com/EdwinPT555/gallery.git)
+git clone https://github.com/EdwinPT555/gallery.git
 
-### `npm start`
+## 3. Installation
+### `npm ci`
 
+## 3. Run Server
 Runs the app in the development mode.\
+### `npm start`
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The page will reload when you make changes.
+
+Enojoy :)

@@ -2,9 +2,10 @@
 
 Live Demo 👉https://jasim-gallery.netlify.app/
 
-## Node Version
-###v14.18.0
+## 1. Node Version
+### `v14.18.0`
 
+## 2. Clone Repository
 ### `npm start`
 
 Runs the app in the development mode.\

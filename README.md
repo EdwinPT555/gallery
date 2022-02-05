@@ -3,8 +3,7 @@
 Live Demo 👉https://jasim-gallery.netlify.app/
 
 ## Node Version
-
-Project build on node version ###v14.18.0
+###v14.18.0
 
 ### `npm start`
 

@@ -6,6 +6,8 @@ Live Demo 👉https://jasim-gallery.netlify.app/
 ### `v14.18.0`
 
 ## 2. Clone Repository
+(https://github.com/EdwinPT555/gallery.git)
+
 ### `npm start`
 
 Runs the app in the development mode.\

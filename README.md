@@ -1,6 +1,6 @@
 # Getting Started with Gallery App
 
-Live Demo(https://jasim-gallery.netlify.app/).
+Live Demo 👉https://jasim-gallery.netlify.app/
 
 ## Available Scripts
 

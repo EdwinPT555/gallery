@@ -2,7 +2,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";

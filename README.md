@@ -2,9 +2,9 @@
 
 Live Demo 👉https://jasim-gallery.netlify.app/
 
-## Available Scripts
+## Node Version
 
-In the project directory, you can run:
+Project build on node version v14.18.0
 
 ### `npm start`
 

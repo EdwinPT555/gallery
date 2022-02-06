@@ -1,23 +1,43 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 import TileCard from "./TileCard";
 
 const GridItem = (props) => {
+  const { videos } = props;
+
+  if (!videos)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        {props.data.map((_item) => (
-          <Grid item lg={3} md={4} sm={6} xs={12} key={_item.title}>
-            <TileCard
-              imgLink={`${_item.img}?w=164&h=164&fit=crop&auto=format`}
-              title={_item.title}
-              description={_item.description}
-            />
-          </Grid>
-        ))}
+        {videos &&
+          videos.map((video) => (
+            <Grid item lg={3} md={4} sm={6} xs={12} key={video.id}>
+              <TileCard
+                id={video.id}
+                imgLink={`${video.image}?w=164&h=164&fit=crop&auto=format`}
+                title={video.id}
+                description={lorem}
+              />
+            </Grid>
+          ))}
       </Grid>
     </Box>
   );
 };
 
 export default GridItem;
+
+const lorem =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard";

@@ -9,26 +9,48 @@ import { useNavigate } from "react-router-dom";
 const TileCard = (props) => {
   const navigate = useNavigate();
   const onWatchClick = () => {
-    navigate(`watch/${props.title}`);
+    navigate(`watch/${props.id}`);
   };
   return (
     <Card onClick={onWatchClick} sx={{ boxShadow: 3 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="200"
-          image={props.imgLink}
-          alt=""
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {props.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      {props.sideView ? (
+        <CardActionArea style={{
+          display: "flex",
+          alignItems:"self-start"
+        }}>
+          <CardMedia
+            component="img"
+            height="200"
+            image={props.imgLink}
+            alt=""
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {props.description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      ) : (
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="200"
+            image={props.imgLink}
+            alt=""
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {props.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {props.description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      )}
     </Card>
   );
 };

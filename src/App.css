@@ -17,6 +17,11 @@
   color: whitesmoke;
 }
 
+.reuse-flex {
+  display: flex;
+  align-items: center;
+}
+
 /* @media only screen and (max-width: 600px) {
     .media-card {
       height: 300px;

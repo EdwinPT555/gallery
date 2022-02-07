@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { data } from "../data";
 import "../App.css";
 import { Box, Grid } from "@mui/material";
 import ShakaPlayer from "shaka-player-react";
@@ -30,24 +29,25 @@ const WatchVideo = () => {
   const [like, setLike] = useState(true);
   const { id } = useParams();
   const ref = React.useRef(null);
-  const { videos } = useContext(AppContext);
-  console.log(videos);
+  const { videos, setIsId } = useContext(AppContext);
 
   useEffect(() => {
     const response = videos && videos.find((video) => video.id === Number(id));
     setVideoData(response);
-  }, [id, videos]);
+    if (id) setIsId(true);
+    else setIsId(false);
+  }, [id, setIsId, videos]);
 
   const onlikeClick = () => {
     setLike(!like);
     like
-      ? toast.error("You Disliked this Video!", {})
-      : toast.success("You liked this Video!");
+      ? toast.error("You Disliked this Video!", { position: "bottom-right" })
+      : toast.success("You liked this Video!", { position: "bottom-right" });
   };
 
   const onShareClick = () => {
     navigator.clipboard.writeText(window.location.href);
-    toast.success("link copied!");
+    toast.success("link copied!", { position: "bottom-right" });
   };
 
   if (!videoData)
@@ -134,8 +134,9 @@ const WatchVideo = () => {
               {videos
                 .filter((item) => item.id !== Number(id))
                 .map((video) => (
-                  <Grid item lg={12} key={video.title}>
+                  <Grid item lg={12} key={video.id}>
                     <TileCard
+                      id={video.id}
                       imgLink={`${video.image}?w=164&h=164&fit=crop&auto=format`}
                       title={video.id}
                       description={lorem}

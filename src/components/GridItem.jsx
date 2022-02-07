@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Box, CircularProgress, Grid } from "@mui/material";
 import TileCard from "./TileCard";
 import AppContext from "./AppContext";
+import { useParams } from "react-router-dom";
 
-const GridItem = (props) => {
-  const { videos } = useContext(AppContext);
+const GridItem = () => {
+  const { videos, setIsId } = useContext(AppContext);
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) setIsId(true);
+    else setIsId(false);
+  }, [id, setIsId]);
 
   if (!videos)
     return (

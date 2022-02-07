@@ -27,3 +27,13 @@
       height: 300px;
     }
 } */
+
+.link-style{
+  text-decoration: none !important;
+  color: black;
+}
+
+.link-style-white{
+  text-decoration: none !important;
+  color: whitesmoke;
+}

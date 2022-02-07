@@ -3,7 +3,7 @@ import AppContext from "./AppContext";
 
 const AppProvider = (props) => {
   const [videos, setVideos] = useState([]);
-
+  const [isId, setIsId] = useState(false);
   useEffect(() => {
     (async () => {
       // const API_KEY ="25584246-6e15ef31cb33a1ad1d5b9f46c";
@@ -25,6 +25,8 @@ const AppProvider = (props) => {
     <AppContext.Provider
       value={{
         videos,
+        setIsId,
+        isId,
       }}
     >
       {props.children}

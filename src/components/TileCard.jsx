@@ -11,16 +11,22 @@ const TileCard = (props) => {
   const onWatchClick = () => {
     navigate(`watch/${props.id}`);
   };
+  const onContinueItemWatchClick = () => {
+    navigate(`watch/${props.id}`);
+  };
   return (
-    <Card onClick={onWatchClick} sx={{ boxShadow: 3 }}>
+    <Card sx={{ boxShadow: 3 }}>
       {props.sideView ? (
-        <CardActionArea style={{
-          display: "flex",
-          alignItems:"self-start"
-        }}>
+        <CardActionArea
+        onClick={onContinueItemWatchClick}
+          style={{
+            display: "flex",
+            alignItems: "self-start",
+          }}
+        >
           <CardMedia
             component="img"
-            height="200"
+            height="120"
             image={props.imgLink}
             alt=""
           />
@@ -34,7 +40,7 @@ const TileCard = (props) => {
           </CardContent>
         </CardActionArea>
       ) : (
-        <CardActionArea>
+        <CardActionArea  onClick={onWatchClick}>
           <CardMedia
             component="img"
             height="200"

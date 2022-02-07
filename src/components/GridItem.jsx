@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, CircularProgress, Grid } from "@mui/material";
 import TileCard from "./TileCard";
+import AppContext from "./AppContext";
 
 const GridItem = (props) => {
-  const { videos } = props;
+  const { videos } = useContext(AppContext);
 
   if (!videos)
     return (

@@ -6,9 +6,9 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { data } from "../data";
+// import { data } from "../data";
 import "../App.css";
 import { Box, Grid } from "@mui/material";
 import ShakaPlayer from "shaka-player-react";
@@ -23,27 +23,20 @@ import {
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AppContext from "./AppContext";
 
 const WatchVideo = () => {
   const [videoData, setVideoData] = useState();
   const [like, setLike] = useState(true);
   const { id } = useParams();
   const ref = React.useRef(null);
+  const { videos } = useContext(AppContext);
+  console.log(videos);
 
   useEffect(() => {
-    (async () => {
-      const data = await fetch(`https://api.pexels.com/videos/videos/${id}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization:
-            "563492ad6f91700001000001039be1c8320f4208b1562d0a03314ecb", //use the apikey you have generated
-        },
-      });
-      const response = await data.json(); //convert the response to json
-      setVideoData(response);
-    })();
-  }, [id]);
+    const response = videos && videos.find((video) => video.id === Number(id));
+    setVideoData(response);
+  }, [id, videos]);
 
   const onlikeClick = () => {
     setLike(!like);
@@ -138,16 +131,18 @@ const WatchVideo = () => {
           <br />
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-              {data.map((_item) => (
-                <Grid item lg={12} key={_item.title}>
-                  <TileCard
-                    imgLink={`${_item.img}?w=164&h=164&fit=crop&auto=format`}
-                    title={_item.title}
-                    description={_item.description}
-                    sideView={true}
-                  />
-                </Grid>
-              ))}
+              {videos
+                .filter((item) => item.id !== Number(id))
+                .map((video) => (
+                  <Grid item lg={12} key={video.title}>
+                    <TileCard
+                      imgLink={`${video.image}?w=164&h=164&fit=crop&auto=format`}
+                      title={video.id}
+                      description={lorem}
+                      sideView={true}
+                    />
+                  </Grid>
+                ))}
             </Grid>
           </Box>
         </Grid>
@@ -159,3 +154,6 @@ const WatchVideo = () => {
 };
 
 export default WatchVideo;
+
+const lorem =
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard";
